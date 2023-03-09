@@ -4,9 +4,25 @@ using UnityEngine;
 
 public class Level1 : MonoBehaviour
 {
-    [SerializeField] GameObject toy_pig;
-    void TapToyPig()
-    {
+    public GameObject pig;
+     void Start () {
         
+     }
+     void Update ()
+     {
+        
+     }
+    
+    void tapPig(TapGesture gesture)
+    {
+        if (GameData.getInstance().isLock)
+        {
+            return;
+        }
+        if (gesture != null && gesture.Selection == pig )
+        {
+            Destroy(pig);
+            
+        }    
     }    
 }
