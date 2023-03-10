@@ -12,7 +12,6 @@ public class PanelMain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
         fadeOut();
     }
 
@@ -25,7 +24,7 @@ public class PanelMain : MonoBehaviour
     {
         switch (g.name)
         {
-            case "bntStart":
+            case "btnStart":
                 fadeIn("LevelMenu");
                 break;
             case "btnMore":

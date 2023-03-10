@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Level1 : MonoBehaviour
 {
     public GameObject pig;
-     void Start () {
+    public Image mask;
+    void Start ()
+    {
         
-     }
+    }
      void Update ()
      {
         
@@ -21,5 +24,6 @@ public class Level1 : MonoBehaviour
             Destroy(pig);
             
         }    
-    }    
+    }
+    
 }
