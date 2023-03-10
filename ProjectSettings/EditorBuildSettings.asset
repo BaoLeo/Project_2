@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/GameScene/MainMenu.unity
     guid: bbf6572d40b85a5469ff26353f332b11
   - enabled: 1
+    path: Assets/GameScene/Credit.unity
+    guid: 520e7d1c6637997409f2472d22b7a194
+  - enabled: 1
     path: Assets/GameScene/Level1.unity
     guid: 02845ae6dd5564a4e82976db2356f006
   - enabled: 1

@@ -4,10 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
-public class PanelMain : MonoBehaviour
+public class Credit : MonoBehaviour
 {
-    public Text btnStart, btnMore, btnAbout;
     public Image mask;
     // Start is called before the first frame update
     void Start()
@@ -18,22 +16,10 @@ public class PanelMain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    public void Onclick(GameObject g)
-    {
-        switch (g.name)
+        if(Input.anyKeyDown)
         {
-            case "btnStart":
-                fadeIn("LevelMenu");
-                break;
-            case "btnMore":
-                fadeIn("Credit");
-                break;
-            case "btnAbout":
-                Application.OpenURL("https://github.com/BaoLeo/Project_2");
-                break;
-        }
+            fadeIn("MainMenu");
+        }    
     }
     
     void fadeOut()
@@ -46,7 +32,7 @@ public class PanelMain : MonoBehaviour
     {
         if (mask.IsActive())
             return;
-        mask.gameObject.SetActive(true);    
+        mask.gameObject.SetActive(true);
         mask.color = new Color(0, 0, 0, 0);
         ATween.ValueTo(mask.gameObject, ATween.Hash("from", 0, "to", 1, "time", 1, "onupdate", "OnUpdateTween", "onupdatetarget", this.gameObject, "oncomplete", "fadeInOver", "oncompleteparams", sceneName, "oncompletetarget", this.gameObject));
     }
@@ -55,7 +41,7 @@ public class PanelMain : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
     void fadeOutOver()
-        {
+    {
         mask.gameObject.SetActive(false);
     }
     void OnUpdateTween(float value)
@@ -64,3 +50,4 @@ public class PanelMain : MonoBehaviour
         mask.color = new Color(0, 0, 0, value);
     }
 }
+

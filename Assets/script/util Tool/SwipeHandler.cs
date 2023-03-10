@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using UnityEngine.UI;
 
 
@@ -67,18 +67,15 @@ public class SwipeHandler : MonoBehaviour
         levelMenu = GameObject.Find("Canvas").GetComponent<LevelMenu>();
     }
 
-    void Update()
-    {
+    void Update() =>
 
 #if (!UNITY_EDITOR && !UNITY_STANDALONE && !UNITY_WEBPLAYER && !UNITY_WEBGL)
 						HandleMobileSwipe ();
 
 #else
-       /* HandleMouseSwipe();*/
+        HandleMouseSwipe();
 #endif
 
-
-    }
 
     private void HandleMobileSwsipe()
     {
@@ -240,3 +237,4 @@ public class SwipeHandler : MonoBehaviour
 
     }
 }
+*/
