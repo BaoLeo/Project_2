@@ -15,18 +15,5 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    public static GameManager instance;
-    public static GameManager getInstance()
-    {
-        if(instance==null)
-        {
-            instance = new GameManager();
-            instance.init();
-        }
-        return instance;
-    }    
-    public void init()
-    {
-        GameData.getInstance().resetData();
-    }    
+   
 }

@@ -20,8 +20,7 @@ public class MainScript : MonoBehaviour
     GameObject gameContainer;
     void initData()
     {
-        GameData.getInstance().main = this;
-        GameData.getInstance().resetData();
+        
         Time.timeScale = 1;
         gameContainer = GameObject.Find("gameContainer");
     }

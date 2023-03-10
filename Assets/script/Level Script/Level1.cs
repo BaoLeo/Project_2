@@ -15,10 +15,7 @@ public class Level1 : MonoBehaviour
     
     void tapPig(TapGesture gesture)
     {
-        if (GameData.getInstance().isLock)
-        {
-            return;
-        }
+       
         if (gesture != null && gesture.Selection == pig )
         {
             Destroy(pig);
