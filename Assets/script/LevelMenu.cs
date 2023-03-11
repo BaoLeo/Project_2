@@ -1,10 +1,10 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine.UI;
-
 using UnityEngine.SceneManagement;
+
+
 public class LevelMenu : MonoBehaviour
 {
 	GameObject mainContainer;
@@ -128,7 +128,7 @@ public class LevelMenu : MonoBehaviour
 	public int perpage = 8;
 	List<GameObject> gContainer;
 	List<GameObject> pageDots;
-	float gap = Screen.width / 8.5f;
+	float gap = Screen.width / 2f;
 	public Image mask;
 	void initView()
 	{
@@ -169,7 +169,7 @@ public class LevelMenu : MonoBehaviour
 			GameObject tbtn = Instantiate(levelButton, Vector3.zero, Quaternion.identity) as GameObject;
 
 			int tContainerNo = Mathf.FloorToInt(i / perpage);
-			tbtn.transform.parent = gContainer[tContainerNo].transform;
+            tbtn.transform.parent = gContainer[tContainerNo].transform;
             tbtn.SetActive(true);
 
 			tbtn.transform.localScale = new Vector3(2, 2, 1);
@@ -202,15 +202,9 @@ public class LevelMenu : MonoBehaviour
             {
 
                 ttext.enabled = false;
-
-
-
-
             }
             else
             {
-
-
                 tbtn.name = "level" + (i + 1);
                 tbtn.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => clickLevel(tbtn));
                 ttext.gameObject.transform.parent.Find("lock").GetComponent<Image>().enabled = false;
@@ -225,11 +219,7 @@ public class LevelMenu : MonoBehaviour
 		int tdotIndex = int.Parse(tdot.transform.parent.name.Substring(4, tdot.transform.parent.name.Length - 4));
 		page = tdotIndex;
 		canmove = false;
-
-
 		ATween.MoveTo(gContainer[0].transform.parent.gameObject, ATween.Hash("ignoretimescale", true, "islocal", true, "x", -gContainer[page].transform.localPosition.x, "time", .3f, "easeType", "easeOutExpo", "oncomplete", "dotclicked", "oncompletetarget", this.gameObject));
-
-
 	}
 	void dotclicked()
 	{
@@ -258,24 +248,24 @@ public class LevelMenu : MonoBehaviour
 		pageDots[page].GetComponent<Image>().color = new Color(1, 1, 1, 1);
 	}
 
-	/*public void continueLevel()
-	{
+    public void continueLevel()
+    {
 
-		int tLastLevel = GameData.getInstance().levelPassed;
+        int tLastLevel = GameData.getInstance().levelPassed;
 
-		if (tLastLevel < GameData.totalLevel)
-		{
-			GameData.getInstance().cLevel = tLastLevel;
-		}
-		else
-		{
-			GameData.getInstance().cLevel = GameData.totalLevel;
-		}
+        if (tLastLevel < GameData.totalLevel)
+        {
+            GameData.getInstance().cLevel = tLastLevel;
+        }
+        else
+        {
+            GameData.getInstance().cLevel = GameData.totalLevel;
+        }
 
-		string tstr = "level" + GameData.getInstance().cLevel;
-		fadeIn(tstr);
-	}*/
-	public void backMain()
+        string tstr = "level" + GameData.getInstance().cLevel;
+        fadeIn(tstr);
+    }
+    public void backMain()
 	{
 		fadeIn("MainMenu");
 	}
@@ -298,14 +288,9 @@ public class LevelMenu : MonoBehaviour
 			return;
 		if (page < pages)
 		{
-
 			page++;
 			canmove = false;
-
-
 			ATween.MoveTo(gContainer[0].transform.parent.gameObject, ATween.Hash("ignoretimescale", true, "islocal", true, "x", -gContainer[page].transform.localPosition.x, "time", .3f, "easeType", "easeOutExpo", "oncomplete", "dotclicked", "oncompletetarget", this.gameObject));
-
-
 		}
 	}
 	public void GoLeft()
@@ -314,14 +299,9 @@ public class LevelMenu : MonoBehaviour
 			return;
 		if (page > 0)
 		{
-
 			page--;
 			canmove = false;
-
-
 			ATween.MoveTo(gContainer[0].transform.parent.gameObject, ATween.Hash("ignoretimescale", true, "islocal", true, "x", -gContainer[page].transform.localPosition.x, "time", .3f, "easeType", "easeOutExpo", "oncomplete", "dotclicked", "oncompletetarget", this.gameObject));
-
-
 		}
 	}
 
@@ -329,9 +309,7 @@ public class LevelMenu : MonoBehaviour
 	{
 		mask.gameObject.SetActive(true);
 		mask.color = Color.black;
-
 		ATween.ValueTo(mask.gameObject, ATween.Hash("ignoretimescale", true, "from", 1, "to", 0, "time", 1, "onupdate", "OnUpdateTween", "onupdatetarget", this.gameObject, "oncomplete", "fadeOutOver", "oncompletetarget", this.gameObject));
-
 	}
 
 	void fadeIn(string sceneName)
@@ -340,9 +318,7 @@ public class LevelMenu : MonoBehaviour
 			return;
 		mask.gameObject.SetActive(true);
 		mask.color = new Color(0, 0, 0, 0);
-
 		ATween.ValueTo(mask.gameObject, ATween.Hash("ignoretimescale", true, "from", 0, "to", 1, "time", 1, "onupdate", "OnUpdateTween", "onupdatetarget", this.gameObject, "oncomplete", "fadeInOver", "oncompleteparams", sceneName, "oncompletetarget", this.gameObject));
-
 	}
 
 	void fadeInOver(string sceneName)
@@ -366,8 +342,8 @@ public class LevelMenu : MonoBehaviour
 
 	}
 
-	public void debugtext(string str)
-	{
-	}
+    public void debugtext(string str)
+    {
+    }
 
 }

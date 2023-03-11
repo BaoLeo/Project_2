@@ -286,6 +286,7 @@ GameObject:
   - component: {fileID: 83342547}
   - component: {fileID: 83342546}
   - component: {fileID: 83342545}
+  - component: {fileID: 83342548}
   m_Layer: 0
   m_Name: btnLevel0
   m_TagString: Untagged
@@ -400,6 +401,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83342543}
   m_CullTransparentMesh: 1
+--- !u!65 &83342548
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83342543}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &104974751
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,7 +958,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 14.759406, y: 20.950012}
+  m_AnchoredPosition: {x: 14.759399, y: 20.450012}
   m_SizeDelta: {x: 29.5188, y: 40.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &554951103
@@ -2095,7 +2109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -27.5308}
+  m_AnchoredPosition: {x: 0, y: -27.530884}
   m_SizeDelta: {x: 0, y: 55.0615}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1680512215
@@ -2255,6 +2269,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c18da002b656014fb5adad42f370da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handleSwipes: 1
+  handleFlicks: 0
+  requiredForceForFlick: 7
+  flickType: 0
+  lockToClosest: 1
+  maxForce: 15
 --- !u!1 &1884661347
 GameObject:
   m_ObjectHideFlags: 0
@@ -2515,7 +2535,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.5
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

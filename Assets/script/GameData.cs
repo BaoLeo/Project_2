@@ -8,11 +8,10 @@ public class GameData
 {
     public int levelPassed = 0;
     public int cLevel = 0;
-    public static string lastwindow = "";
     public static int totalLevel = 10;
     public static GameData instance;
-    public MainScript main;
-    public bool islock = false;
+    /*public MainScript main;*/
+   /* public bool islock = false;*/
     void Start()
     {
 
@@ -21,7 +20,7 @@ public class GameData
     {
 
     }
-   /* public List<int>lvStar = new List<int>(260);*/
+   /* public List<int>lvStar = new List<int>();*/
     public static GameData getInstance()
     {
         if (instance == null)
@@ -30,12 +29,12 @@ public class GameData
         }
         return instance;
     }
-    public void resetData()
+    /*public void resetData()
     {
         islock = false;
-    }
+    }*/
 
-    public void lockGame(bool _lock, bool stopTime = true)
+    /*public void lockGame(bool _lock, bool stopTime = true)
     {
         islock = _lock;
         if (stopTime)
@@ -43,5 +42,5 @@ public class GameData
             Time.timeScale = islock ? 0 : 1;
         }
     }
-    
+    */
 }
