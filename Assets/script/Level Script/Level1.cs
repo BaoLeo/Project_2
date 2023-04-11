@@ -6,24 +6,25 @@ using UnityEngine.UI;
 public class Level1 : MonoBehaviour
 {
     public GameObject pig;
-    public Image mask;
-    void Start ()
-    {
-        
-    }
-     void Update ()
-     {
-        
-     }
     
+    void Start()
+    {
+
+    }
+    void Update()
+    {
+
+    }
+
     void tapPig(TapGesture gesture)
     {
-       
-        if (gesture != null && gesture.Selection == pig )
+        if (GameData.getInstance().isLock)//If the game locked,you can not control the game.
+            return;
+        if (gesture != null && gesture.Selection == pig)
         {
             Destroy(pig);
-            
-        }    
+            GameData.getInstance().main.gameWin();
+        }
     }
-    
+
 }

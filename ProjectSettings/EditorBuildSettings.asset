@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameScene/LevelMenu.unity
     guid: 10cd3b4c31d0f7743abf98da74e0d11c
+  - enabled: 1
+    path: Assets/GameScene/level2.unity
+    guid: f8def56a7a38bc44c8e2e00e36fca1a7
+  - enabled: 1
+    path: Assets/GameScene/level3.unity
+    guid: 3e6466ebb8413a74aa89cfaef1f86a8c
   m_configObjects: {}
