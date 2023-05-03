@@ -49,9 +49,6 @@ public class PanelMain : MonoBehaviour
 			case "btnReview":
 				Application.OpenURL("https://github.com/BaoLeo/Project_2");
 				break;
-			case "btnResetData":
-				GameData.instance.resetData();
-				break;
 		}
 	}
 
