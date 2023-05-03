@@ -21,11 +21,7 @@ public class Trigger : MonoBehaviour {
 		/// <param name="collider">Collider.</param>
 		void OnTriggerEnter(Collider collider){
 				switch(SceneManager.GetActiveScene().name){
-				case "level2":
-						if (collider.name == "mouse") {
-								g.SendMessage ("mouseHitBread");
-						}
-						break;
+				
 				case "level4":
 						if (collider.tag == "game") {
 								Destroy (collider.gameObject);
@@ -35,16 +31,7 @@ public class Trigger : MonoBehaviour {
 								GameData.getInstance ().main.gameWin ();
 						}
 						break;
-				case "level9":
-						if (collider.name == "bread") {
-								if (Mathf.Abs(collider.transform.position.y - transform.position.y) < 1) {
-										collider.GetComponent<Rigidbody> ().isKinematic = true;
-										collider.transform.parent = transform;
-										collider.transform.position = -new Vector3 (.2f, .8f, 0);
-										GameData.getInstance ().main.gameWin ();	
-								}
-						}
-						break;
+				
 				case "level11":
 						if (collider.name == "bread") {
 								GameData.getInstance ().main.gameWin ();

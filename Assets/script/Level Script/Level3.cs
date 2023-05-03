@@ -1,105 +1,45 @@
+﻿using UnityEngine;
 using System.Collections;
+
 using System.Collections.Generic;
-using UnityEngine;
 
-public class Level3 : MonoBehaviour
-{
-	// Use this for initialization
-	public GameObject[] food;
-	public GameObject diamond;
-	public GameObject[] dragObjects;
-	int endn = 0;
-	void Start()
-	{
-		StartCoroutine("tick");
-		endn = (int)Random.Range(5, 12);
-	}
-	bool istick = true;
-	IEnumerator tick()
-	{
-		while (istick)
-		{
-			yield return new WaitForSeconds(2);
-			if (endn <= 0)
-			{
-				diamond.GetComponent<Rigidbody>().isKinematic = false;
-				diamond.GetComponent<Rigidbody>().AddForce(Vector3.up);
-				istick = false;
-			}
-			else
-			{
+public class Level3 :MonoBehaviour {
 
-				int trnd = (int)Random.Range(0, 5);
-				float trndx = Random.Range(-1.5f, 1.5f);
-				GameObject tfood = Instantiate(food[trnd], new Vector3(trndx, 3, 0), Quaternion.identity) as GameObject;
-				tfood.GetComponent<Rigidbody>().isKinematic = false;
-				Destroy(tfood, 3);
-				endn--;
-			}
+		// Use this for initialization
+		public GameObject diamond,fragile,stone,wallhole,diamondfake,destroywall;
+		void Start () {
+
 
 		}
 
-	}
-	// Update is called once per frame
-	void Update()
-	{
-		if (GameData.getInstance().isFail || GameData.getInstance().isWin)
-			return;
-		if (diamond.transform.position.y < -5)
+
+		int n = 0;
+		void OnTap( TapGesture gesture )
 		{
-			GameData.getInstance().main.gameFailed();
-		}
-	}
-
-
-
-	void OnDrag(DragGesture gesture)
-	{
-
-		if (GameData.getInstance().isLock)
-			return;
-		if (gesture.Phase == ContinuousGesturePhase.Started)
-		{
-
-		}
-		else if (gesture.Phase == ContinuousGesturePhase.Updated)
-		{
-
-			foreach (GameObject dragObject in dragObjects)
-			{
-				if (gesture.Selection == dragObject)
-				{
-
-					dragObject.transform.position = Util.GetWorldPos(gesture.Position, dragObject, true);
-
+				if (GameData.getInstance ().isLock)
+						return;
+				if (gesture != null && gesture.Selection == destroywall) {
+						n++;
+						if (n == 12) { 
+								wallhole.SetActive(true);
+								diamond.SetActive(true);
+								Destroy(destroywall);
+								GameManager.getInstance().playSfx("break");
+						}
 				}
-			}
 
-		}
-		else
-		{
-			foreach (GameObject dragObject in dragObjects)
-			{
-				if (gesture.Selection == dragObject)
-				{
-					//released										
 
-					//										if (dragObject == steelstick) {
-					//												float tdis = Vector2.Distance (trapoff.transform.position, steelstick.transform.position);
-					//												if (tdis < .4f && !touched) {
-					//														DestroyImmediate (dragObject);
-					//														steelfixed.SetActive (true);
-					//												} else {
-					//														steelstick.transform.position = steelStartPos;
-					//												}
-					//										}
+
+				if (gesture != null && gesture.Selection == diamondfake) {
+//						DestroyObject (bread);
+						diamondfake.SetActive (false);
+						stone.SetActive(true);
+						GameData.getInstance ().main.gameFailed ();
+				} 
+				if (gesture != null && gesture.Selection == diamond) { 
+						DestroyObject (diamond);
+						GameData.getInstance ().main.gameWin ();
 				}
-			}
-
 		}
-
-	}
-
-
 
 }

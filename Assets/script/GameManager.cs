@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
 		{
 			if (bgMusic)
 				bgMusic.Stop();
-			
+			/*tmusic = music.GetComponent<musicScript>().PlayAudioClip(clip, true);*/
 			if (str.Substring(0, 2) == "bg")
 			{
 				musicName = str;
@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
 		AudioClip clip = (AudioClip)Resources.Load("sound\\" + str, typeof(AudioClip));//调用Resources方法加载AudioClip资源
 		if (GameData.getInstance().isSfxOn == 0)
 		{
-			
+			/*sfxSound = music.GetComponent<musicScript>().PlayAudioClip(clip);*/
 			if (sfxSound != null)
 			{
 				if (sfxdic.ContainsKey(str) == false || sfxdic[str] != 1)
@@ -294,7 +294,7 @@ public class GameManager : MonoBehaviour
 		Debug.Log("soundstate:" + GameData.getInstance().isSoundOn + "sfxstate:" + GameData.getInstance().isSfxOn);
 		initGameCenter();
 
-		initStore();
+		/*initStore();*/
 
 	}
 	public bool noToggleSound = false;
@@ -436,6 +436,8 @@ public class GameManager : MonoBehaviour
 	string rewardPlacementId = "rewardedVideo";
 	string videoPlacementId = "video";
 	
+
+
 	public void hideBanner(bool isHidden)
 	{
 
@@ -452,14 +454,19 @@ public class GameManager : MonoBehaviour
 
 	public void CacheInterestial()
 	{
-		if (GameData.isAds)
-		{
-
-		}
+				
 	}
 
 	bool isfirst = true;
 	
+
+
+	
+
+
+
+
+
 
 
 	void makeReward()
@@ -493,30 +500,58 @@ public class GameManager : MonoBehaviour
 	public const string CONSUMABLE2 = "td15612.coin3";
 	public const string CONSUMABLE3 = "td15612.coin4";
 
-	
+	/*public static Purchaser purchaser;
 	void initStore()
 	{
 
-		
+		GameObject music = GameObject.Find("music");
+		if (music != null)
+		{
+			purchaser = music.GetComponent<Purchaser>();
+		}
 	}
-
+*/
 
 	//only for google store if have one.Otherwise just ignore.
-	public const string publishKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCA7jYjOsLFT/uSy3ZEk5KaNg1xx60RN7yWJaoQZ7qMeLy4hsVB3IpgMXgiYFiKELkBaUEkObiPDlCxcHnWVlhnzJBvTfeCPrYNVOOSJFZrXdotp5L0iS2NVHjnllM+HA1M0W2eSNjdYzdLmZl1bxTpXa4th+dVli9lZu7B7C2ly79i/hGTmvaClzPBNyX+Rtj7Bmo336zh2lYbRdpD5glozUq+10u91PMDPH+jqhx10eyZpiapr8dFqXl5diMiobknw9CgcjxqMTVBQHK6hS0qYKPmUDONquJn280fBs1PTeA6NMG03gb9FLESKFclcuEZtvM8ZwMMRxSLA9GwIDAQAB";
 
-	public bool test = true;
+	
 	/// <summary>
 	/// Buy item
 	/// </summary>
 	/// <param name="index">Index.</param>
-	public void buy(int index)
+	/*public void buy(int index)
 	{
-	}
+		if (test)
+		{
+			purchansedCallback("pack" + index);
+		}
+		else
+		{
+			switch (index)
+			{
+				case 0:
+					purchaser.BuyConsumable("pack0");
+					break;
+				case 1:
+					purchaser.BuyConsumable("pack1");
+					break;
+				case 2:
+					purchaser.BuyConsumable("pack2");
+					break;
+				case 3:
+					purchaser.BuyConsumable("pack3");
+					break;
 
-	public void restore()
+
+
+			}
+		}
+	}*/
+
+	/*public void restore()
 	{
-		
-	}
+		purchaser.RestorePurchases();
+	}*/
 
 	/// <summary>
 	/// This will be called when a purchase completes.
@@ -558,24 +593,8 @@ public class GameManager : MonoBehaviour
 
 
 
-	public void OnUnityAdsReady(string surfacingId)
-	{
-
-	}
-
-	public void OnUnityAdsDidError(string message)
-	{
-	}
-
-	public void OnUnityAdsDidStart(string surfacingId)
-	{
-	}
-
-	// When the object that subscribes to ad events is destroyed, remove the listener:
-
-
-	// Implement IUnityAdsListener interface methods:
 	
+
 
 
 

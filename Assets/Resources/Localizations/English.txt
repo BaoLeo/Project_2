@@ -29,7 +29,7 @@ btnTitle = Title
 btnRetry = Retry
 btnStart = Start Game
 btnReview =Rate & Review
-btnMore = More Game
+btnMore = Credit
 btnContinue = Cointinue
 levelScore = Total Score: 
 

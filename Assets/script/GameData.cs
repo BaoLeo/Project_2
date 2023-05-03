@@ -27,7 +27,7 @@ public class GameData
 
 	public MainScript main;//mainscipt instance
 	public GameObject maing;//not used
-	public static int totalLevel = 21;//total levels
+	public static int totalLevel = 10;//total levels
 
 
 	//control
@@ -141,39 +141,7 @@ public class GameData
 			case "level10":
 				tbestScore = 10;/////
 				break;
-			case "level11":
-				tbestScore = 4;
-				break;
-			case "level12":
-				tbestScore = 3;
-				break;
-			case "level13":
-				tbestScore = 4;
-				break;
-			case "level14":
-				tbestScore = 6;
-				break;
-			case "level15":
-				tbestScore = 9;
-				break;
-			case "level16":
-				tbestScore = 5;
-				break;
-			case "level17":
-				tbestScore = 6;
-				break;
-			case "level18":
-				tbestScore = 9;
-				break;
-			case "level19":
-				tbestScore = 3;
-				break;
-			case "level20":
-				tbestScore = 2;
-				break;
-			case "level21":
-				tbestScore = 10;
-				break;
+			
 			default:
 				tbestScore = 10;
 				break;
@@ -182,11 +150,7 @@ public class GameData
 		return tbestScore;
 	}
 
-	/// <summary>
-	/// Locks the game.
-	/// </summary>
-	/// <param name="_lock">If set to <c>true</c> lock.</param>
-	/// <param name="stopTime">If set to <c>true</c> stop time.</param>
+	
 	public void lockGame(bool _lock, bool stopTime = true)
 	{
 		islock = _lock;
@@ -195,10 +159,7 @@ public class GameData
 			Time.timeScale = islock ? 0 : 1;
 		}
 	}
-	/// <summary>
-	/// Gets a value indicating whether this <see cref="GameData"/> is lock.
-	/// </summary>
-	/// <value><c>true</c> if is lock; otherwise, <c>false</c>.</value>
+	
 	public bool isLock
 	{
 		get
@@ -207,10 +168,7 @@ public class GameData
 		}
 	}
 
-	/// <summary>
-	/// Gets the system laguage.
-	/// </summary>
-	/// <returns>The system laguage.</returns>
+	
 	public int GetSystemLaguage()
 	{
 		int returnValue = 0;

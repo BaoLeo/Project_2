@@ -18,12 +18,8 @@ public class PanelMain : MonoBehaviour
 
         fadeOut();
 
-
-        
-
-
         Localization.Instance.SetLanguage(GameData.getInstance().GetSystemLaguage());
-
+			
         initView();
     }
 
@@ -52,6 +48,9 @@ public class PanelMain : MonoBehaviour
 				break;
 			case "btnReview":
 				Application.OpenURL("https://github.com/BaoLeo/Project_2");
+				break;
+			case "btnResetData":
+				GameData.instance.resetData();
 				break;
 		}
 	}
