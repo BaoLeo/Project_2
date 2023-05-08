@@ -67,14 +67,7 @@ public class SwipeHandler : MonoBehaviour
         levelMenu = GameObject.Find("Canvas").GetComponent<LevelMenu>();
     }
 
-    void Update() =>
-
-#if (!UNITY_EDITOR && !UNITY_STANDALONE && !UNITY_WEBPLAYER && !UNITY_WEBGL)
-						HandleMobileSwipe ();
-
-#else
-        HandleMouseSwipe();
-#endif
+    void Update() { HandleMobileSwsipe(); }
 
 
     private void HandleMobileSwsipe()

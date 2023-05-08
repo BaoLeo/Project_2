@@ -429,12 +429,12 @@ public class GameManager : MonoBehaviour
 
 
 	//ads
-	bool testmode = true;
+	/*bool testmode = true;
 	string androidGameId = "3346291";
 	string iosGameId = "3346290";
 	string gameId;
 	string rewardPlacementId = "rewardedVideo";
-	string videoPlacementId = "video";
+	string videoPlacementId = "video";*/
 	
 
 

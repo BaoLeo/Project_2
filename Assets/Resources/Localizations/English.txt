@@ -4,11 +4,6 @@ levelname3 = level 3
 levelname4 = level 4 
 levelname5 = level 5 
 levelname6 = level 6 
-levelname7 = level 7 
-levelname8 = level 8 
-levelname9 = level 9 
-levelname10 = level 10 
-
 
 btnYes = yes
 btnNO = no
@@ -19,27 +14,12 @@ btnTitle = Title
 btnRetry = Retry
 btnStart = Start Game
 btnReview =About Game
-btnMore = Credit
+btnMore = Credits
 btnContinue = Cointinue
-levelScore = Total Score: 
-
-titleShop = Coin Store
-price1tip = Get 300 Coin
-price2tip = Get 600 Coin
-price3tip = Get 1000 Coin
-price4tip = Get 1500 Coin
-price1 = $0.99
-price2 = $1.99
-price3 = $2.99
-price4 = $3.99
+levelScore = Total Score: s
 
 
-askTipTitle = Do you wanna show a tip?
-askTipHit = Show tip will cost you 20 coins.
-askSkipTitle = Wanna skip this level?
-askSkipHit = Skip this level costs 60 coins.
-notEnoughTitle = not enough coin.
-notEnoughHit = Show Tip costs 20 coins.\n Skip level costs 60 coins.
+
 
 wintitle = Level Completed
 levelscore = Level Score: 
@@ -47,7 +27,6 @@ failtitle = Level Failed
 
 
 
-tipTitle = Level Tip
 
 
 
