@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-//using Umeng;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class MainScript : MonoBehaviour
@@ -301,13 +300,12 @@ public class MainScript : MonoBehaviour
 			return;
 
 		GameData.getInstance().lockGame(true, false);
-		GameManager.getInstance().playSfx("gamelose");
+	/*	GameManager.getInstance().playSfx("gamelose");*/
 
 
 
 		GameData.getInstance().isFail = true;
-		//		GA.FailLevel(Application.loadedLevelName);
-		//		GameData.getInstance ().isWin = true;
+		
 		nFail++;
 		if (nFail == 5)
 		{
@@ -336,10 +334,7 @@ public class MainScript : MonoBehaviour
 
 
 
-	/// <summary>
-	/// Deal with button actions
-	/// </summary>
-	/// <param name="g">The green component.</param>
+	
 	public void buttonHandler(GameObject g)
 	{
 
@@ -441,16 +436,12 @@ public class MainScript : MonoBehaviour
 	}
 
 
-	/// <summary>
-	/// Loads the main scene.
-	/// </summary>
+	
 	public void loadMainScene()
 	{
 		Application.LoadLevel("MainMenu");
 	}
-	/// <summary>
-	/// Loads the level scene.
-	/// </summary>
+	
 	public void loadLevelScene()
 	{
 		Application.LoadLevel("LevelMenu");
@@ -462,7 +453,7 @@ public class MainScript : MonoBehaviour
 
 	}
 
-	//--------------------
+	
 
 
 	void disableAll()
@@ -503,9 +494,7 @@ public class MainScript : MonoBehaviour
 		fadeIn("level" + (clevel + 1));
 	}
 
-	/// <summary>
-	/// camera fade out
-	/// </summary>
+	
 	public Image mask;
 	void fadeOut()
 	{
@@ -514,10 +503,7 @@ public class MainScript : MonoBehaviour
 		ATween.ValueTo(mask.gameObject, ATween.Hash("ignoretimescale", true, "from", 1, "to", 0, "time", 1, "onupdate", "OnUpdateTween", "onupdatetarget", this.gameObject, "oncomplete", "fadeOutOver", "oncompletetarget", this.gameObject));
 
 	}
-	/// <summary>
-	/// camera fade in
-	/// </summary>
-	/// <param name="sceneName">Scene name.</param>
+	
 	void fadeIn(string sceneName)
 	{
 		if (mask.IsActive())
@@ -544,10 +530,6 @@ public class MainScript : MonoBehaviour
 	}
 
 
-	/// <summary>
-	/// tween update event
-	/// </summary>
-	/// <param name="value">Value.</param>
 	void OnUpdateTween(float value)
 
 	{

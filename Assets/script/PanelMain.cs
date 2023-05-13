@@ -14,8 +14,8 @@ public class PanelMain : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-		audio = GetComponent<AudioSource>();
-		GameManager.getInstance().init();
+        audio = GetComponent<AudioSource>();
+        GameManager.getInstance().init();
 
         fadeOut();
 

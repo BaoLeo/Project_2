@@ -22,10 +22,7 @@ public class Level5 : MonoBehaviour
 
 
 	float myalpha = 1;//skull alpha,if not drop to 0,you pick the skull,you lose the game
-	/// <summary>
-	/// Raises the finger move event.
-	/// </summary>
-	/// <param name="e">E.</param>
+	
 	void OnFingerMove(FingerMotionEvent e)
 	{
 		if (e.Selection == skull)
@@ -51,10 +48,7 @@ public class Level5 : MonoBehaviour
 		}
 	}
 
-	/// <summary>
-	/// Raises the tap event.
-	/// </summary>
-	/// <param name="gesture">Gesture.</param>
+	
 	void OnTap(TapGesture gesture)
 	{
 		if (GameData.getInstance().isLock)//if locked,not response to player input
