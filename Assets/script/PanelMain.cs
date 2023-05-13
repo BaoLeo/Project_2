@@ -9,12 +9,13 @@ public class PanelMain : MonoBehaviour
     // game UI elements
     public Text btnStart, btnMore, btnReview;
     public GameObject  titleEN;
- 
-    public Image mask;
+	public new AudioSource audio;
+	public Image mask;
     // Use this for initialization
     void Start()
     {
-        GameManager.getInstance().init();
+		audio = GetComponent<AudioSource>();
+		GameManager.getInstance().init();
 
         fadeOut();
 
