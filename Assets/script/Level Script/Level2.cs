@@ -22,7 +22,7 @@ public class Level2 : MonoBehaviour
 	public bool touched = false;
 	public GameObject trapoff, trapon, Diamond, steelstick, steelfixed;
 
-	public GameObject[] dragObjects;//you assign all object which can be drag into this object
+	public GameObject[] dragObjects;
 
 
 
@@ -32,20 +32,18 @@ public class Level2 : MonoBehaviour
 	void OnDrag(DragGesture gesture)
 	{
 
-		if (GameData.getInstance().isLock)//if game locked,ignore any inputs
+		if (GameData.getInstance().isLock)
 			return;
-		if (gesture.Phase == ContinuousGesturePhase.Started)//start drag
+		if (gesture.Phase == ContinuousGesturePhase.Started)
 		{
 
 		}
 		else if (gesture.Phase == ContinuousGesturePhase.Updated)//is draging
 		{
-			//keep all objects can be drag by moving
 			foreach (GameObject dragObject in dragObjects)
 			{
 				if (gesture.Selection == dragObject)
 				{
-					//this make all dragable objects moving while draging
 					dragObject.transform.position = Util.GetWorldPos(gesture.Position, dragObject);
 
 				}
@@ -108,7 +106,6 @@ public class Level2 : MonoBehaviour
 				GameData.getInstance().main.gameFailed();
 				trapoff.SetActive(false);
 				trapon.SetActive(true);
-				GameManager.getInstance().playSfx("hitmetal");
 			}
 			else
 			{

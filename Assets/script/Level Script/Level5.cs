@@ -51,15 +51,15 @@ public class Level5 : MonoBehaviour
 	
 	void OnTap(TapGesture gesture)
 	{
-		if (GameData.getInstance().isLock)//if locked,not response to player input
+		if (GameData.getInstance().isLock)
 			return;
 		if (gesture != null && gesture.Selection == bread)
-		{//when choose bread
-			DestroyObject(bread);//pick up bread
+		{
+			DestroyObject(bread);
 			if (sp.color.a > .01f)
-			{//if skull have not faded out.
+			{
 				GameData.getInstance().main.gameFailed();   //you lose the game
-				GameManager.getInstance().playSfx("puke");//play a dead sound effect
+				/*GameManager.getInstance().playSfx("");//play a dead sound effect*/
 			}
 			else
 			{

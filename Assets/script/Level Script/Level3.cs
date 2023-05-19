@@ -24,7 +24,6 @@ public class Level3 :MonoBehaviour {
 								wallhole.SetActive(true);
 								diamond.SetActive(true);
 								Destroy(destroywall);
-								GameManager.getInstance().playSfx("break");
 						}
 				}
 

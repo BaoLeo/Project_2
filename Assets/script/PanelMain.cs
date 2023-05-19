@@ -32,11 +32,6 @@ public class PanelMain : MonoBehaviour
 		GameObject.Find("btnReview").GetComponentInChildren<Text>().text = Localization.Instance.GetString("btnReview");
 	}
 
-	/// <summary>
-	/// process toggle button(music and sound effect buttons)
-	/// </summary>
-	/// <param name="toggle">Toggle.</param>
-
 	public void Onclick(GameObject g)
 	{
 		switch (g.name)
@@ -84,10 +79,7 @@ public class PanelMain : MonoBehaviour
 		mask.gameObject.SetActive(false);
 	}
 
-	/// <summary>
-	/// tween update event
-	/// </summary>
-	/// <param name="value">Value.</param>
+
 	void OnUpdateTween(float value)
 
 	{

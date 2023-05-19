@@ -65,9 +65,7 @@ public class MainScript : MonoBehaviour
 
 		initGameView();
 	}
-	/// <summary>
-	/// Inits the game view.
-	/// </summary>
+	
 	void initGameView()
 	{
 		int tnFloor = (int)Random.Range(1, 2);
@@ -137,7 +135,7 @@ public class MainScript : MonoBehaviour
 		if (GameData.getInstance().isFail)
 			return;
 		GameData.getInstance().lockGame(true, false);
-		GameManager.getInstance().playSfx("applaud");
+		/*GameManager.getInstance().playSfx("");*/
 		StartCoroutine("win");
 
 
@@ -300,7 +298,7 @@ public class MainScript : MonoBehaviour
 			return;
 
 		GameData.getInstance().lockGame(true, false);
-	/*	GameManager.getInstance().playSfx("gamelose");*/
+	/*	GameManager.getInstance().playSfx("");*/
 
 
 
@@ -342,22 +340,22 @@ public class MainScript : MonoBehaviour
 		{
 			case "btnMain":
 
-				GameManager.getInstance().playSfx("click");
+				/*GameManager.getInstance().playSfx("");*/
 				break;
 			case "btnLevel":
 
-				GameManager.getInstance().playSfx("click");
+				/*GameManager.getInstance().playSfx("");*/
 				GameData.isInGame = false;
 				break;
 			case "btnRewind":
 
 			case "btnRestart":
 				Application.LoadLevel(Application.loadedLevelName);
-				GameManager.getInstance().playSfx("click");
+				/*GameManager.getInstance().playSfx("");*/
 				break;
 			case "btnRetry":
 				Application.LoadLevel(Application.loadedLevelName);
-				GameManager.getInstance().playSfx("click");
+				/*GameManager.getInstance().playSfx("");*/
 				break;
 			case "btnContinue":
 				if (GameData.getInstance().cLevel < GameData.totalLevel - 1)
@@ -365,7 +363,7 @@ public class MainScript : MonoBehaviour
 					GameData.getInstance().cLevel++;
 				}
 				Application.LoadLevel("level" + (GameData.getInstance().cLevel + 1));
-				GameManager.getInstance().playSfx("click");
+				/*GameManager.getInstance().playSfx("");*/
 				break;
 			case "btnAction":
 				GameData.getInstance().maing.BroadcastMessage("action");
@@ -381,7 +379,6 @@ public class MainScript : MonoBehaviour
 				break;
 			case "btnTitle":
 
-				GameManager.getInstance().playSfx("click");
 				GameData.isInGame = false;
 				break;
 			case "btnPause":
@@ -399,7 +396,6 @@ public class MainScript : MonoBehaviour
 
 				panelAskTip.SetActive(true);
 				panelAskTip.GetComponent<PanelAskTip>().showMe();
-				GameManager.getInstance().playSfx("click");
 
 				break;
 			case "btnSkip":
@@ -423,11 +419,9 @@ public class MainScript : MonoBehaviour
 					return;
 
 				GameData.getInstance().lockGame(true);
-				GameManager.getInstance().playSfx("click");
 				break;
 			case "btnSkipMenu":
 				if (GameData.getInstance().isWin || GameData.getInstance().isFail) return;
-				GameManager.getInstance().playSfx("click");
 				GameObject.Find("PanelAskSkip").GetComponent<PanelAskSkip>().showMe();
 
 				break;

@@ -56,7 +56,6 @@ public class PanelBuyCoin : MonoBehaviour {
 		public void OnClick2(GameObject g){
 				switch (g.name) {
 				case "btnBuyCoin":
-						GameManager.getInstance().playSfx("select");
 
 						int tindex = int.Parse(g.transform.parent.name.Substring(3,1));
 						print(tindex);

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine.UI;
-////using DG.Tweening;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 public class LevelMenu : MonoBehaviour
@@ -49,16 +48,13 @@ public class LevelMenu : MonoBehaviour
 		}
 	}
 
-	/// <summary>
-	/// simulate Swipes the page to is right position
-	/// </summary>
-	/// <param name="force">Force.</param>
+	
 	public void swipePage(float force)
 	{
 
 
 		if (Mathf.Abs(force) < 1f)
-		{//user not do a quick swipe
+		{
 			if (groups[page].transform.position.x < Screen.width / 4)
 			{
 				if (page >= 0 && page < pages)
@@ -121,21 +117,19 @@ public class LevelMenu : MonoBehaviour
 			}
 		}
 
-		//not allow level buttons active while moving the menu
 		StopCoroutine("swiped");
 		StartCoroutine("swiped");
 
 	}
 
-	//lock the game while page is auto moving.Unlock when finished
 	IEnumerator swiped()
 	{
 		yield return new WaitForEndOfFrame();
 		isMoving = false;
 	}
 
-	public GameObject levelButton;//the level button template instance
-	public GameObject dot;//the page dot for turn page
+	public GameObject levelButton;
+	public GameObject dot;
 
 	int page = 0;//current page
 	int pages = 1;//how many page
@@ -241,10 +235,6 @@ public class LevelMenu : MonoBehaviour
 
 
 	}
-	/// <summary>
-	/// Clicks the dot. For turn page
-	/// </summary>
-	/// <param name="tdot">Tdot.</param>
 	public void clickDot(GameObject tdot)
 	{
 		int tdotIndex = int.Parse(tdot.transform.parent.name.Substring(4, tdot.transform.parent.name.Length - 4));
@@ -257,9 +247,6 @@ public class LevelMenu : MonoBehaviour
 
 	}
 
-	/// <summary>
-	/// page turned
-	/// </summary>
 	void dotclicked()
 	{
 		canmove = true;
@@ -269,10 +256,7 @@ public class LevelMenu : MonoBehaviour
 
 
 	public static bool islock = false;
-	/// <summary>
-	/// Clicks the level button.
-	/// </summary>
-	/// <param name="tbtn">Tbtn.</param>
+
 	void clickLevel(GameObject tbtn)
 	{
 		if (!isMoving)
@@ -285,9 +269,7 @@ public class LevelMenu : MonoBehaviour
 	}
 
 
-	/// <summary>
-	/// Set dots for pages.
-	/// </summary>
+	
 	void setpageDot()
 	{
 		for (int i = 0; i < pageDots.Count; i++)
@@ -298,9 +280,7 @@ public class LevelMenu : MonoBehaviour
 	}
 
 
-	/// <summary>
-	/// touch the continue to Continues your last level.
-	/// </summary>
+	
 	public void continueLevel()
 	{
 
@@ -319,26 +299,18 @@ public class LevelMenu : MonoBehaviour
 		fadeIn(tstr);
 	}
 
-	/// <summary>
-	/// Backs the main scene.
-	/// </summary>
+	
 	public void backMain()
 	{
-		GameManager.getInstance().playSfx("click");
 		fadeIn("MainMenu");
 	}
 
-	/// <summary>
-	/// Loads the game scene.
-	/// </summary>
+	
 	public void loadGameScene()
 	{
 
 		SceneManager.LoadScene("Game");
 	}
-	/// <summary>
-	/// Loads the main scene.
-	/// </summary>
 	public void loadMainScene()
 	{
 
@@ -347,9 +319,6 @@ public class LevelMenu : MonoBehaviour
 
 
 	bool canmove = true;//can not enter a level and can not move when moving
-	/// <summary>
-	/// page Goes right.
-	/// </summary>
 	public void GoRight()
 	{
 		if (!canmove)
@@ -366,9 +335,6 @@ public class LevelMenu : MonoBehaviour
 
 		}
 	}
-	/// <summary>
-	/// page goes left.
-	/// </summary>
 	public void GoLeft()
 	{
 		if (!canmove)
@@ -406,42 +372,20 @@ public class LevelMenu : MonoBehaviour
 		ATween.ValueTo(mask.gameObject, ATween.Hash("ignoretimescale", true, "from", 0, "to", 1, "time", 1, "onupdate", "OnUpdateTween", "onupdatetarget", this.gameObject, "oncomplete", "fadeInOver", "oncompleteparams", sceneName, "oncompletetarget", this.gameObject));
 
 	}
-
-
-	/// <summary>
-	/// when Fadein over.
-	/// </summary>
-	/// <param name="sceneName">Scene name.</param>
 	void fadeInOver(string sceneName)
 	{
 		SceneManager.LoadScene(sceneName);
 	}
-
-	/// <summary>
-	/// when fade out over
-	/// </summary>
 	void fadeOutOver()
 	{
 		mask.gameObject.SetActive(false);
 	}
-
-	/// <summary>
-	/// tween update event
-	/// </summary>
-	/// <param name="value">Value.</param>
 	void OnUpdateTween(float value)
 
 	{
 
 		mask.color = new Color(0, 0, 0, value);
 	}
-
-
-
-
-	/// <summary>
-	/// Returns the page to its origin place.
-	/// </summary>
 	void returnPage()
 	{
 		canmove = false;

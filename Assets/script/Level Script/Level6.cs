@@ -99,7 +99,7 @@ public class Level6 : MonoBehaviour
 			door2.SetActive(true);
 			if (!isopened)
 			{
-				GameManager.getInstance().playSfx("kata");
+				/*GameManager.getInstance().playSfx("");*/
 				isopened = true;
 
 				if (Mathf.Abs(tdoor.transform.position.x - doorMark.transform.position.x) < .1f)
